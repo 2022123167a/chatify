@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatify – Giriş</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="body-gradient">
+
+  <div class="center-container">
+    <div class="card">
+      <h1 class="app-title">Chatify</h1>
+
+      <h2 id="form-baslik">Tekrar Hoş Geldin</h2>
+      <p id="form-alt-baslik" class="subtitle">Hesabına giriş yap</p>
+
+      <!-- GİRİŞ FORMU -->
+      <form id="login-form" class="form">
+        <div class="form-group">
+          <label for="login-kullanici">Kullanıcı Adı</label>
+          <input
+            type="text"
+            id="login-kullanici"
+            placeholder="Kullanıcı Adı"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="login-sifre">Şifre</label>
+          <input
+            type="password"
+            id="login-sifre"
+            placeholder="Şifreni gir"
+          />
+        </div>
+
+        <button type="button" class="btn-primary" id="login-btn">Giriş Yap</button>
+      </form>
+
+      <!-- KAYIT FORMU -->
+      <form id="register-form" class="form gizli">
+        <div class="form-group">
+          <label for="reg-kullanici">Kullanıcı Adı</label>
+          <input
+            type="text"
+            id="reg-kullanici"
+            placeholder="Kullanıcı Adı"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="reg-sifre">Şifre</label>
+          <input
+            type="password"
+            id="reg-sifre"
+            placeholder="Şifreni gir"
+          />
+        </div>
+
+        <button type="button" class="btn-primary" id="register-btn">Kayıt Ol</button>
+      </form>
+
+      <p class="switch-text">
+        <span id="switch-text">Hesabın yok mu?</span>
+        <span id="switch-link" class="switch-link">Kayıt Ol</span>
+      </p>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

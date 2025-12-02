@@ -1,0 +1,376 @@
+/* Reset basit */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body.body-gradient {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #1e3a8a 0, #020617 40%, #020617 100%);
+  color: #e5e7eb;
+}
+
+/* Merkez kart (login/register) */
+.center-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.95);
+  padding: 40px 48px;
+  border-radius: 24px;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  text-align: left;
+}
+
+.app-title {
+  color: #38bdf8;
+  font-size: 28px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.card h2 {
+  font-size: 22px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.subtitle {
+  color: #9ca3af;
+  font-size: 14px;
+  margin-top: 4px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 14px;
+  color: #e5e7eb;
+}
+
+input[type="text"],
+input[type="password"] {
+  background: #020617;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  padding: 10px 12px;
+  color: #f9fafb;
+  font-size: 14px;
+}
+
+input::placeholder {
+  color: #6b7280;
+}
+
+input:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 1px #38bdf8;
+}
+
+.btn-primary {
+  background: #0ea5e9;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background: #0284c7;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.switch-text {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+.switch-link {
+  color: #38bdf8;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.switch-link:hover {
+  text-decoration: underline;
+}
+
+.gizli {
+  display: none;
+}
+
+/* ========================= */
+/*        CHAT SAYFASI       */
+/* ========================= */
+
+.chat-layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #020617;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar-header {
+  margin-bottom: 8px;
+}
+
+.sidebar-section-title {
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+/* Kullanıcı listesi */
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Tek kullanıcı satırı */
+.user-item {
+  background: #0f172a;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+  font-size: 14px;
+}
+
+.user-item:hover {
+  background: #1e293b;
+}
+
+.user-item.aktif {
+  border-color: #38bdf8;
+}
+
+/* Sol kısım: nokta + isim */
+.user-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Online / Offline nokta */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+/* Online = yeşil, Offline = gri */
+.status-online {
+  background: #22c55e; /* yesil */
+}
+
+.status-offline {
+  background: #6b7280; /* gri */
+}
+
+.user-name {
+  color: #e5e7eb;
+}
+
+/* Okunmamış mesaj badge */
+.unread-badge {
+  background: #f97316;
+  color: white;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+}
+
+.logout-btn {
+  margin-top: 10px;
+}
+
+/* Chat main */
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #020617;
+}
+
+.chat-header {
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1e293b;
+  color: #e5e7eb;
+}
+
+.unread-info {
+  font-size: 13px;
+  color: #f97316;
+}
+
+/* Messages container */
+.messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Mesaj kutuları */
+.mesaj {
+  max-width: 60%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.mesaj-ben {
+  align-self: flex-end;
+  background: #0ea5e9;
+  color: white;
+  border-bottom-right-radius: 3px;
+}
+
+.mesaj-diger {
+  align-self: flex-start;
+  background: #111827;
+  color: #e5e7eb;
+  border-bottom-left-radius: 3px;
+}
+
+.mesaj-zaman {
+  display: block;
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+/* Alt input alanı */
+.chat-input-area {
+  border-top: 1px solid #1e293b;
+  padding: 10px 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Input kutusu */
+.message-input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: #0f1624;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease-in-out;
+}
+
+.message-input::placeholder {
+  color: #8ea6c1;
+}
+
+.message-input:focus {
+  background: #111b2c;
+  box-shadow: 0 0 12px rgba(0, 175, 255, 0.5);
+}
+
+/* Gönder butonu */
+.send-btn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  background: #008cff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.send-btn:hover {
+  background: #0aa3ff;
+  transform: translateY(-1px);
+}
+
+.send-btn:active {
+  transform: scale(0.97);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chat-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    align-items: center;
+  }
+
+  .user-list {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .user-item {
+    min-width: 120px;
+  }
+
+  .chat-main {
+    flex: 1;
+  }
+}

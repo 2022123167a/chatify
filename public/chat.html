@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sohbet</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="body-gradient">
+  <div class="chat-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h1 class="app-title">Chatify</h1>
+
+      <div class="sidebar-section-title">Sohbetler</div>
+
+      <div id="kullanici-listesi" class="user-list"></div>
+
+      <button id="cikis-btn" class="btn-primary logout-btn">Çıkış Yap</button>
+    </aside>
+
+    <!-- Main chat area -->
+    <main class="chat-main">
+
+      <header class="chat-header">
+        <h2 id="aktif-kullanici-adi">Kullanıcı</h2>
+        <span id="aktif-okunmamis" class="unread-info gizli"></span>
+      </header>
+
+      <section id="mesaj-alani" class="messages"></section>
+
+      <footer class="chat-input-area">
+        <input 
+          id="mesaj-input" 
+          type="text"
+          class="message-input"
+          placeholder="Mesaj yaz..."
+        />
+        <button id="gonder-btn" class="send-btn">Gönder</button>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- SOCKET.IO CLIENT -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <!-- CHAT LOGIC -->
+  <script src="js/chat.js"></script>
+</body>
+</html>
