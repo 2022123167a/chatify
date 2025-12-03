@@ -36,8 +36,9 @@ function formDegistir() {
 
 switchLink.addEventListener("click", formDegistir);
 
-// ✅ SUNUCU ADRESI BURADA AYARLANIYOR
-const API_BASE = "http://localhost:1000/api";
+// SUNUCU ADRESI OTOMATIK AYARLANIYOR
+
+const API_BASE = window.location.origin + "/api";
 
 // -------------------------
 //        Giriş
