@@ -109,6 +109,126 @@ input:focus {
   transform: scale(0.98);
 }
 
+/* Secondary button (used for Create Group) */
+.btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #e5e7eb;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(56,189,248,0.35);
+}
+
+/* Group list */
+.group-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.group-item {
+  background: #0f172a;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.group-item:hover { background: #1e293b; }
+.group-item.aktif { border-color: #38bdf8; }
+
+/* Modal for creating group */
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 1200;
+}
+
+.modal-inner {
+  background: #071024;
+  padding: 20px;
+  border-radius: 12px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.group-users { display:flex; flex-direction:column; gap:8px; max-height:220px; overflow:auto; margin:10px 0; }
+.group-user-label { display:flex; gap:8px; align-items:center; background:#0b1220; padding:8px; border-radius:8px; }
+.modal-actions { display:flex; gap:8px; justify-content:flex-end; margin-top:8px; }
+
+.info { color:#9ca3af; padding:12px; }
+
+/* Group modal: nicer input and selected-member styles */
+#group-name-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg,#031b26 0%, #021018 100%);
+  color: #e6f7ff;
+  font-size: 14px;
+}
+
+#group-name-input::placeholder {
+  color: #7ea9bb;
+}
+
+.group-user-label {
+  display:flex;
+  gap:8px;
+  align-items:center;
+  background:#071225;
+  padding:8px 10px;
+  border-radius:8px;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+.group-user-label input[type="checkbox"] {
+  width:18px;
+  height:18px;
+  margin:0;
+  accent-color: #0ea5e9; /* modern browsers */
+  background: #04121a;
+  border-radius:4px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.group-user-label span {
+  display:block;
+  padding:6px 10px;
+  border-radius:6px;
+  flex:1;
+  color:#dbeefd;
+}
+
+/* when checked, highlight the whole row with a different tint */
+.group-user-label input[type="checkbox"]:checked + span {
+  background: linear-gradient(90deg, rgba(14,165,233,0.06), rgba(3,105,161,0.04));
+  border-left: 3px solid rgba(14,165,233,0.6);
+  color: #e6f7ff;
+}
+
+/* also show subtle focus ring on checkbox for keyboard users */
+.group-user-label input[type="checkbox"]:focus {
+  outline: 2px solid rgba(14,165,233,0.12);
+  outline-offset: 2px;
+}
+
 .switch-text {
   margin-top: 18px;
   font-size: 13px;
@@ -266,12 +386,15 @@ input:focus {
 
 /* Mesaj kutuları */
 .mesaj {
-  max-width: 60%;
+  display: inline-block;
+  max-width: 65%;
   padding: 10px 14px;
   border-radius: 14px;
   font-size: 15px;
   line-height: 1.4;
   position: relative;
+  word-break: break-word;
+  overflow: hidden;
 }
 
 .mesaj-ben {
@@ -287,6 +410,40 @@ input:focus {
   color: #e5e7eb;
   border-bottom-left-radius: 3px;
 }
+
+/* media inside message bubble */
+.media-wrap { display:block; width:100%; margin-top:8px; }
+.media-wrap img { display:block; width:100%; height:auto; border-radius:8px; }
+
+/* Media-specific bubble sizing */
+.mesaj-media {
+  display: inline-block;
+  max-width: 80%;
+  padding: 10px 14px;
+}
+.mesaj-media .media-wrap img {
+  display: block;
+  width: auto;
+  max-width: 420px;
+  height: auto;
+  border-radius: 8px;
+}
+/* audio removed; only images supported */
+
+/* try to make native controls blend with bubble on WebKit/Chromium */
+/* audio control styling removed (audio feature disabled) */
+
+/* time under message */
+.msg-time {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 6px;
+  text-align: right;
+}
+.mesaj-diger .msg-time { text-align: left; color: rgba(255,255,255,0.5); }
+
+/* ensure sender name is above text and image */
+.msg-sender { display:block; margin-bottom:6px; color: rgba(255,255,255,0.95); font-weight:600; }
 
 .mesaj-zaman {
   display: block;
@@ -346,6 +503,54 @@ input:focus {
 
 .send-btn:active {
   transform: scale(0.97);
+}
+
+.react-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.03);
+  color: #e6f7ff;
+  padding: 6px 8px;
+  border-radius: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.reactions-wrap { display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; }
+.react-pill { background: rgba(255,255,255,0.04); padding:4px 8px; border-radius:999px; font-size:12px; }
+
+/* preview thumbnail in input area */
+.preview-wrap { display:flex; align-items:center; gap:8px; margin-right:8px; }
+.preview-thumb { width:64px; height:64px; object-fit:cover; border-radius:8px; border:1px solid rgba(255,255,255,0.06); }
+.preview-actions { display:flex; gap:8px; }
+.preview-actions button { background: rgba(255,255,255,0.03); border: none; color: #dbeefd; padding:6px 8px; border-radius:6px; cursor:pointer; }
+
+/* small file input style */
+.image-input {
+  display: none; /* hide native file input; use camera label button */
+}
+
+/* camera button (label for file input) */
+.camera-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-left: 8px;
+  margin-right: 6px;
+  background: linear-gradient(180deg,#0ea5e9,#0284c7);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(2,132,199,0.12);
+  border: none;
+  font-size: 16px;
+}
+
+.camera-btn:hover { transform: translateY(-1px); }
+
+.camera-btn::after {
+  content: '\1F4F7'; /* camera emoji */
 }
 
 /* Responsive */

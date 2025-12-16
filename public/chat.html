@@ -15,6 +15,12 @@
 
       <div class="sidebar-section-title">Sohbetler</div>
 
+      <div class="sidebar-section-title">Gruplar</div>
+      <button id="create-group-btn" class="btn-secondary">Grup Oluştur</button>
+      <div id="grup-listesi" class="group-list"></div>
+
+      <div class="sidebar-section-title">Sohbetler</div>
+
       <div id="kullanici-listesi" class="user-list"></div>
 
       <button id="cikis-btn" class="btn-primary logout-btn">Çıkış Yap</button>
@@ -31,12 +37,15 @@
       <section id="mesaj-alani" class="messages"></section>
 
       <footer class="chat-input-area">
+        <div id="preview-container" class="preview-wrap"></div>
         <input 
           id="mesaj-input" 
           type="text"
           class="message-input"
           placeholder="Mesaj yaz..."
         />
+        <input id="image-input" type="file" accept="image/*" class="image-input" />
+        <label for="image-input" class="camera-btn" title="Resim ekle"></label>
         <button id="gonder-btn" class="send-btn">Gönder</button>
       </footer>
 
@@ -45,6 +54,19 @@
 
   <!-- SOCKET.IO CLIENT -->
   <script src="/socket.io/socket.io.js"></script>
+
+  <!-- CREATE GROUP MODAL -->
+  <div id="create-group-modal" class="modal gizli">
+    <div class="modal-inner">
+      <h3>Grup Oluştur</h3>
+      <input id="group-name-input" placeholder="Grup ismi" />
+      <div id="group-users-container" class="group-users"></div>
+      <div class="modal-actions">
+        <button id="create-group-submit" class="btn-primary">Oluştur</button>
+        <button id="create-group-cancel" class="btn-secondary">İptal</button>
+      </div>
+    </div>
+  </div>
 
   <!-- CHAT LOGIC -->
   <script src="js/chat.js"></script>
